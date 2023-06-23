@@ -1,6 +1,3 @@
-
-[React Best Coding practices]([https://github.com/imranmd/ReactBestPracticesAndGuidelines/])
-
 Performing a self code review for a ReactJS application involves ensuring that the code is readable, maintainable, and adheres to best practices. Here's a checklist to help you with the self code review:
 
 1. **Code structure and organization**:
