@@ -30,7 +30,7 @@ Your task is to complete the implementation of the above functionalities, utiliz
 
 Note: Make sure to include relevant imports, manage component state appropriately, handle form submission and event handling, and structure your components in separate files for better organization.
 
-
 Submission Guidelines: 
 Note: Ensure your code is well-structured, properly commented, and follows best practices for code quality and readability, including Redux-specific guidelines.
-Best coding practices & guidelines should be followed from here: 
+Best coding practices & guidelines should be followed from here: [React Best Coding practices](https://github.com/imranmd/ReactBestPracticesAndGuidelines/)
+Best of luck, and happy coding!

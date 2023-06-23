@@ -32,5 +32,5 @@ Note: Ensure your code is well-structured, properly commented, and follows best 
 
 Submission Guidelines: 
 Note: Ensure your code is well-structured, properly commented, and follows best practices for code quality and readability, including Redux-specific guidelines.
-Best coding practices & guidelines should be followed from here: 
+Best coding practices & guidelines should be followed from here: [React Best Coding practices](https://github.com/imranmd/ReactBestPracticesAndGuidelines/)
 Best of luck, and happy coding!
