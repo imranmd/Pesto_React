@@ -1,192 +1,59 @@
-# Dillinger
-## _The Last Markdown Editor, Ever_
+Performing a self code review for a ReactJS application involves ensuring that the code is readable, maintainable, and adheres to best practices. Here's a checklist to help you with the self code review:
 
-[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
+1. **Code structure and organization**:
+   - Is the codebase well-organized and modular?
+   - Are components logically grouped and located in appropriate directories?
+   - Are files and folders named consistently and meaningfully?
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+2. **Code formatting**:
+   - Is the code consistently formatted following the agreed-upon coding style?
+   - Are indentations, spacing, and line breaks used consistently?
+   - Are there any overly long lines that need to be shortened?
 
-Dillinger is a cloud-enabled, mobile-ready, offline-storage compatible,
-AngularJS-powered HTML5 Markdown editor.
+3. **Naming conventions**:
+   - Are variable and function names descriptive and meaningful?
+   - Do the names accurately represent their purpose or functionality?
+   - Are there any ambiguous or confusing names that need clarification?
 
-- Type some Markdown on the left
-- See HTML in the right
-- ✨Magic ✨
+4. **Component structure and best practices**:
+   - Are components designed with a clear separation of concerns?
+   - Are components properly encapsulated and following the single responsibility principle?
+   - Are there any reusable components that could be extracted for better modularity?
 
-## Features
+5. **State management**:
+   - Is the state managed appropriately using React's state or a state management library (e.g., Redux)?
+   - Are the components using the correct lifecycle methods and hooks?
+   - Are there any potential performance issues related to state management?
 
-- Import a HTML file and watch it magically convert to Markdown
-- Drag and drop images (requires your Dropbox account be linked)
-- Import and save files from GitHub, Dropbox, Google Drive and One Drive
-- Drag and drop markdown and HTML files into Dillinger
-- Export documents as Markdown, HTML and PDF
+6. **Prop usage**:
+   - Are the props used correctly and consistently within components?
+   - Are there any unnecessary or unused props being passed?
+   - Are required props properly validated and documented?
 
-Markdown is a lightweight markup language based on the formatting conventions
-that people naturally use in email.
-As [John Gruber] writes on the [Markdown site][df1]
+7. **Error handling**:
+   - Are there appropriate error boundaries to handle and display errors?
+   - Is error handling consistent across the application?
+   - Are there any potential error scenarios that are not adequately handled?
 
-> The overriding design goal for Markdown's
-> formatting syntax is to make it as readable
-> as possible. The idea is that a
-> Markdown-formatted document should be
-> publishable as-is, as plain text, without
-> looking like it's been marked up with tags
-> or formatting instructions.
+8. **Code duplication**:
+   - Are there any code blocks that are duplicated and can be refactored into reusable functions or components?
+   - Are there any opportunities to extract shared logic into utility functions or custom hooks?
 
-This text you see here is *actually- written in Markdown! To get a feel
-for Markdown's syntax, type some text into the left window and
-watch the results in the right.
+9. **Performance optimizations**:
+   - Are there any unnecessary re-renders or performance bottlenecks?
+   - Are expensive computations or API calls properly memoized?
+   - Is data fetching optimized, avoiding redundant requests?
 
-## Tech
+10. **Security considerations**:
+    - Are there any potential security vulnerabilities, such as unvalidated user input or insufficient data sanitization?
+    - Are sensitive data handled securely, such as using encryption or secure protocols for API calls?
 
-Dillinger uses a number of open source projects to work properly:
+11. **Testing**:
+    - Are there sufficient unit tests covering critical components and functionality?
+    - Are the tests checking both positive and negative scenarios?
+    - Are there any code sections lacking proper test coverage?
 
-- [AngularJS] - HTML enhanced for web apps!
-- [Ace Editor] - awesome web-based text editor
-- [markdown-it] - Markdown parser done right. Fast and easy to extend.
-- [Twitter Bootstrap] - great UI boilerplate for modern web apps
-- [node.js] - evented I/O for the backend
-- [Express] - fast node.js network app framework [@tjholowaychuk]
-- [Gulp] - the streaming build system
-- [Breakdance](https://breakdance.github.io/breakdance/) - HTML
-to Markdown converter
-- [jQuery] - duh
-
-And of course Dillinger itself is open source with a [public repository][dill]
- on GitHub.
-
-## Installation
-
-Dillinger requires [Node.js](https://nodejs.org/) v10+ to run.
-
-Install the dependencies and devDependencies and start the server.
-
-```sh
-cd dillinger
-npm i
-node app
-```
-
-For production environments...
-
-```sh
-npm install --production
-NODE_ENV=production node app
-```
-
-## Plugins
-
-Dillinger is currently extended with the following plugins.
-Instructions on how to use them in your own application are linked below.
-
-| Plugin | README |
-| ------ | ------ |
-| Dropbox | [plugins/dropbox/README.md][PlDb] |
-| GitHub | [plugins/github/README.md][PlGh] |
-| Google Drive | [plugins/googledrive/README.md][PlGd] |
-| OneDrive | [plugins/onedrive/README.md][PlOd] |
-| Medium | [plugins/medium/README.md][PlMe] |
-| Google Analytics | [plugins/googleanalytics/README.md][PlGa] |
-
-## Development
-
-Want to contribute? Great!
-
-Dillinger uses Gulp + Webpack for fast developing.
-Make a change in your file and instantaneously see your updates!
-
-Open your favorite Terminal and run these commands.
-
-First Tab:
-
-```sh
-node app
-```
-
-Second Tab:
-
-```sh
-gulp watch
-```
-
-(optional) Third:
-
-```sh
-karma test
-```
-
-#### Building for source
-
-For production release:
-
-```sh
-gulp build --prod
-```
-
-Generating pre-built zip archives for distribution:
-
-```sh
-gulp build dist --prod
-```
-
-## Docker
-
-Dillinger is very easy to install and deploy in a Docker container.
-
-By default, the Docker will expose port 8080, so change this within the
-Dockerfile if necessary. When ready, simply use the Dockerfile to
-build the image.
-
-```sh
-cd dillinger
-docker build -t <youruser>/dillinger:${package.json.version} .
-```
-
-This will create the dillinger image and pull in the necessary dependencies.
-Be sure to swap out `${package.json.version}` with the actual
-version of Dillinger.
-
-Once done, run the Docker image and map the port to whatever you wish on
-your host. In this example, we simply map port 8000 of the host to
-port 8080 of the Docker (or whatever port was exposed in the Dockerfile):
-
-```sh
-docker run -d -p 8000:8080 --restart=always --cap-add=SYS_ADMIN --name=dillinger <youruser>/dillinger:${package.json.version}
-```
-
-> Note: `--capt-add=SYS-ADMIN` is required for PDF rendering.
-
-Verify the deployment by navigating to your server address in
-your preferred browser.
-
-```sh
-127.0.0.1:8000
-```
-
-## License
-
-MIT
-
-**Free Software, Hell Yeah!**
-
-[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
-
-   [dill]: <https://github.com/joemccann/dillinger>
-   [git-repo-url]: <https://github.com/joemccann/dillinger.git>
-   [john gruber]: <http://daringfireball.net>
-   [df1]: <http://daringfireball.net/projects/markdown/>
-   [markdown-it]: <https://github.com/markdown-it/markdown-it>
-   [Ace Editor]: <http://ace.ajax.org>
-   [node.js]: <http://nodejs.org>
-   [Twitter Bootstrap]: <http://twitter.github.com/bootstrap/>
-   [jQuery]: <http://jquery.com>
-   [@tjholowaychuk]: <http://twitter.com/tjholowaychuk>
-   [express]: <http://expressjs.com>
-   [AngularJS]: <http://angularjs.org>
-   [Gulp]: <http://gulpjs.com>
-
-   [PlDb]: <https://github.com/joemccann/dillinger/tree/master/plugins/dropbox/README.md>
-   [PlGh]: <https://github.com/joemccann/dillinger/tree/master/plugins/github/README.md>
-   [PlGd]: <https://github.com/joemccann/dillinger/tree/master/plugins/googledrive/README.md>
-   [PlOd]: <https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md>
-   [PlMe]: <https://github.com/joemccann/dillinger/tree/master/plugins/medium/README.md>
-   [PlGa]: <https://github.com/RahulHP/dillinger/blob/master/plugins/googleanalytics/README.md>
+12. **Documentation**:
+    - Is the code sufficiently documented, including inline comments where necessary?
+    - Are there any undocumented features or complex code sections that need explanations?
+    - Is the README file up to date with relevant setup instructions and usage guidelines?
